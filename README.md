@@ -34,13 +34,30 @@ Configure as credenciais do banco de dados no arquivo .env:
     DB_PASSWORD=senha
 ### 4. Gere a Chave da Aplicação:
     php artisan key:generate
-
 ### 5. Execute as Migrações:
     php artisan migrate
-### 6. Inicie o Servidor Laravel:
+### 6. Inserir dados ficticios para teste:
+    php artisan migrate:fresh --seed
+### 7. Inicie o Servidor Laravel:
     php artisan serve
 
-## A seguir, estão os endpoints disponíveis na API Laravel para consumo:
+## Instalação do Frontend (React)
+
+### 1. Navegue para o Diretório do Frontend:
+verifique se já está dentro do projeto livraria
+
+    cd frontend
+
+### 2. Instale as Dependências do React:
+    npm install
+
+### 3. Inicie o Servidor de Desenvolvimento do React:
+    npm start
+
+O aplicativo React estará disponível em http://localhost:3000.
+
+
+## A seguir, estão os endpoints disponíveis na API para consumo:
 
 ### 1. **Listar Todos os Livros**
 
@@ -58,15 +75,7 @@ Endpoint: GET
 
 **Descrição:** Busca um livro específico pelo seu título.
 
-### 3. **Deletar Livro pelo ID**
-Endpoint: DELETE 
-
-        http://127.0.0.1:8000/api/books/{id}
-
-
-**Descrição:** Deleta um livro com base no seu ID.
-
-### 4. **Adicionar Novo Livro**
+### 3. **Adicionar Novo Livro**
 Endpoint: POST 
 
         http://127.0.0.1:8000/api/books
@@ -82,21 +91,29 @@ Body da Requisição:
         "description": "Descrição do livro exemplo."
     }
 
-## Instalação do Frontend (React)
+### 4. **Editar um Livro pelo ID**
+Endpoint: PUT
 
-### 1. Navegue para o Diretório do Frontend:
-verifique se já está dentro do projeto livraria
+        http://127.0.0.1:8000/api/books/{id}
+**Descrição:** Adiciona um novo livro ao sistema.
 
-    cd frontend
+Body da Requisição:
 
-### 2. Instale as Dependências do React:
-    npm install
+    {
+        "title": "Livro Exemplo",
+        "author": "Autor Exemplo",
+        "genre": "Ficção",
+        "year": 2021,
+        "description": "Descrição do livro exemplo."
+    }
 
-### 3. Inicie o Servidor de Desenvolvimento do React:
-    npm start
+### 5. **Deletar Livro pelo ID**
+Endpoint: DELETE 
 
-O aplicativo React estará disponível em http://localhost:3000.
+        http://127.0.0.1:8000/api/books/{id}
 
+
+**Descrição:** Deleta um livro com base no seu ID.
 
 Contato
 Para mais informações, entre em contato com https://github.com/charlescleyton
